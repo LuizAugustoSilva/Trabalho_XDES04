@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Consulta Odontológica</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Consulta Odontológica</h1>
+
+    <!-- Formulário para inserção de nova consulta -->
+    <div id="formulario">
+        <h2>Inserir Nova Consulta</h2>
+        <form id="formConsulta">
+            <label for="data">Data:</label>
+            <input type="date" id="data" name="data" required><br><br>
+            
+            <label for="horaInicio">Hora Início:</label>
+            <input type="time" id="horaInicio" name="horaInicio" required><br><br>
+            
+            <label for="horaTermino">Hora Término:</label>
+            <input type="time" id="horaTermino" name="horaTermino" required><br><br>
+            
+            <label for="dentista">Dentista Responsável:</label>
+            <input type="text" id="dentista" name="dentista" required><br><br>
+            
+            <label for="procedimento">Procedimento:</label>
+            <select id="procedimento" name="procedimento" required>
+                <option value="limpeza">Limpeza</option>
+                <option value="exame">Exame</option>
+                <option value="tratamento">Tratamento</option>
+            </select><br><br>
+            
+            <label for="sala">Sala:</label>
+            <select id="sala" name="sala" required>
+                <option value="sala1">Sala 1</option>
+                <option value="sala2">Sala 2</option>
+                <option value="sala3">Sala 3</option>
+            </select><br><br>
+            
+            <label for="observacao">Observações:</label>
+            <textarea id="observacao" name="observacao"></textarea><br><br>
+
+            <button type="button" onclick="inserirConsulta()">Inserir Consulta</button>
+        </form>
+    </div>
+
+    <!-- Seção para exibir e manipular as consultas -->
+    <div id="consultas">
+        <h2>Consultas Cadastradas</h2>
+        <div id="resultadoConsultas">
+            <!-- A lista de consultas será exibida aqui -->
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

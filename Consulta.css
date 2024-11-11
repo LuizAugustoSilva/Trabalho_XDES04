@@ -1,0 +1,81 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+div {
+    margin: 20px;
+}
+
+label {
+    font-weight: bold;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 8px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+#formulario, #consultas {
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+#resultadoConsultas {
+    margin-top: 20px;
+}
+
+.consultaItem {
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+}
+
+.consultaItem:last-child {
+    border-bottom: none;
+}
+
+button.editar, button.remover {
+    margin-left: 10px;
+    padding: 5px 10px;
+}
+
+button.editar {
+    background-color: #ffa500;
+}
+
+button.editar:hover {
+    background-color: #e68900;
+}
+
+button.remover {
+    background-color: #f44336;
+}
+
+button.remover:hover {
+    background-color: #d32f2f;
+}
