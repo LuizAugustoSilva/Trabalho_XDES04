@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestão de Procedimentos</title>
+    <link rel="stylesheet" href="Procedimento.css">
+</head>
+<body>
+    <h1>Gestão de Procedimentos</h1>
+
+    <!-- Formulário para cadastro e edição de procedimentos -->
+    <div id="formulario">
+        <h2>Cadastrar/Editar Procedimento</h2>
+        <form id="formProcedimento">
+            <label for="nome">Nome do Procedimento:</label>
+            <input type="text" id="nome" name="nome" required><br><br>
+
+            <label for="quantidadeAuxiliares">Quantidade de Auxiliares:</label>
+            <input type="number" id="quantidadeAuxiliares" name="quantidadeAuxiliares" required><br><br>
+
+            <label for="equipamentos">Equipamentos:</label>
+            <input type="text" id="equipamentos" name="equipamentos"><br><br>
+
+            <label for="valorPadrao">Valor Padrão:</label>
+            <input type="number" id="valorPadrao" name="valorPadrao" required><br><br>
+
+            <label for="tipoSala">Tipo de Sala:</label>
+            <input type="text" id="tipoSala" name="tipoSala" required><br><br>
+
+            <label for="observacao">Observação:</label>
+            <textarea id="observacao" name="observacao"></textarea><br><br>
+
+            <button type="button" id="btnSalvar" onclick="salvarProcedimento()">Salvar</button>
+        </form>
+    </div>
+
+    <!-- Tabela de Procedimentos -->
+    <div id="procedimentos">
+        <h2>Procedimentos Cadastrados</h2>
+        <div>
+            <input type="text" id="filtroNome" placeholder="Filtrar por Nome">
+            <button type="button" onclick="filtrarProcedimentos()">Filtrar</button>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Quantidade de Auxiliares</th>
+                    <th>Equipamentos</th>
+                    <th>Valor Padrão</th>
+                    <th>Tipo de Sala</th>
+                    <th>Observação</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody id="listaProcedimentos">
+                <!-- Linhas serão adicionadas dinamicamente -->
+            </tbody>
+        </table>
+    </div>
+
+    <script src="Procedimento.js"></script>
+</body>
+</html>
