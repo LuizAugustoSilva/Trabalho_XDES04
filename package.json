@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "chai": "^5.1.2",
+    "mocha": "^10.8.2",
+    "selenium-webdriver": "^4.26.0"
+  },
+  "scripts": {
+  "test": "mocha test/**/*.js"
+}
+}

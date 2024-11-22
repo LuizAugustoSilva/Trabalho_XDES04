@@ -1,46 +1,172 @@
-/* CSS para estilização básica */
-body {
-    font-family: Arial, sans-serif;
+/* Reset e estilos base */
+* {
     margin: 0;
     padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    box-sizing: border-box;
 }
 
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    min-height: 100vh;
+    padding: 2rem;
+    color: #2c3e50;
+}
+
+/* Cabeçalho */
 h1 {
-    margin-top: 20px;
+    text-align: center;
+    color: #2c3e50;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+h2 {
+    color: #3498db;
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Containers */
+.container {
+    background: white;
+    border-radius: 15px;
+    padding: 2rem;
+    margin: 2rem auto;
+    max-width: 1000px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+/* Formulário */
+form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #34495e;
+    font-weight: 500;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    font-family: inherit;
+}
+
+textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+input:focus, select:focus, textarea:focus {
+    border-color: #3498db;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+}
+
+/* Botões */
+button {
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background: #3498db;
+    color: white;
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.btn-primary:hover {
+    background: #2980b9;
+    transform: translateY(-2px);
+}
+
+/* Lista de Pacientes */
+.patient-card {
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #e0e0e0;
+    transition: all 0.3s ease;
+}
+
+.patient-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.patient-info {
+    margin-bottom: 1rem;
+}
+
+.patient-info p {
+    margin: 0.5rem 0;
+    color: #2c3e50;
+}
+
+.patient-actions {
+    display: flex;
+    gap: 1rem;
+}
+
+.btn-edit {
+    background: #f39c12;
+    color: white;
+}
+
+.btn-remove {
+    background: #e74c3c;
+    color: white;
+}
+
+.btn-edit:hover {
+    background: #d68910;
+}
+
+.btn-remove:hover {
+    background: #c0392b;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    form {
+        grid-template-columns: 1fr;
+    }
+
+    .patient-actions {
+        flex-direction: column;
+    }
+
+    .container {
+        padding: 1rem;
+    }
+}
+
+/* Animações */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 .container {
-    max-width: 600px;
-    width: 100%;
-    padding: 20px;
-    background-color: #f7f7f7;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    margin-top: 20px;
-}
-
-label, input, select, button {
-    display: block;
-    width: 100%;
-    margin-top: 10px;
-}
-
-button {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-    border-radius: 5px;
-}
-
-button:hover {
-    background-color: #45a049;
-}
-
-.patient-list {
-    margin-top: 20px;
+    animation: fadeIn 0.5s ease-out;
 }

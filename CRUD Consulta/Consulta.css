@@ -1,81 +1,173 @@
-body {
-    font-family: Arial, sans-serif;
+/* Reset e estilos base */
+* {
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    box-sizing: border-box;
 }
 
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    min-height: 100vh;
+    padding: 2rem;
+    color: #2c3e50;
+}
+
+/* Cabeçalho */
 h1 {
     text-align: center;
-    color: #333;
+    color: #2c3e50;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
 }
 
-div {
-    margin: 20px;
+h2 {
+    color: #3498db;
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Containers */
+#formulario, #consultas {
+    background: white;
+    border-radius: 15px;
+    padding: 2rem;
+    margin: 2rem auto;
+    max-width: 1000px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+/* Formulário */
+form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+}
+
+.form-group {
+    margin-bottom: 1rem;
 }
 
 label {
-    font-weight: bold;
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #34495e;
+    font-weight: 500;
 }
 
 input, select, textarea {
     width: 100%;
-    padding: 8px;
-    margin: 5px 0;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    padding: 0.8rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    font-family: inherit;
 }
 
+textarea {
+    min-height: 100px;
+    resize: vertical;
+    grid-column: span 2;
+}
+
+input:focus, select:focus, textarea:focus {
+    border-color: #3498db;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+}
+
+/* Botões */
 button {
-    padding: 10px 20px;
-    background-color: #4CAF50;
-    color: white;
+    padding: 0.8rem 1.5rem;
     border: none;
+    border-radius: 8px;
     cursor: pointer;
-    border-radius: 4px;
+    font-weight: 600;
+    transition: all 0.3s ease;
 }
 
-button:hover {
-    background-color: #45a049;
+.btn-primary {
+    background: #3498db;
+    color: white;
+    grid-column: span 2;
+    margin-top: 1rem;
+}
+
+.btn-primary:hover {
+    background: #2980b9;
+    transform: translateY(-2px);
+}
+
+/* Lista de Consultas */
+.consultaItem {
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #e0e0e0;
+    transition: all 0.3s ease;
+}
+
+.consultaItem:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.consulta-info {
+    margin-bottom: 1rem;
+}
+
+.consulta-info p {
+    margin: 0.5rem 0;
+    color: #2c3e50;
+}
+
+.consulta-actions {
+    display: flex;
+    gap: 1rem;
+}
+
+.editar {
+    background: #f39c12;
+    color: white;
+}
+
+.remover {
+    background: #e74c3c;
+    color: white;
+}
+
+.editar:hover {
+    background: #d68910;
+}
+
+.remover:hover {
+    background: #c0392b;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    form {
+        grid-template-columns: 1fr;
+    }
+
+    .btn-primary, textarea {
+        grid-column: 1;
+    }
+
+    .consulta-actions {
+        flex-direction: column;
+    }
+}
+
+/* Animações */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 #formulario, #consultas {
-    background-color: white;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-}
-
-#resultadoConsultas {
-    margin-top: 20px;
-}
-
-.consultaItem {
-    border-bottom: 1px solid #ddd;
-    padding: 10px 0;
-}
-
-.consultaItem:last-child {
-    border-bottom: none;
-}
-
-button.editar, button.remover {
-    margin-left: 10px;
-    padding: 5px 10px;
-}
-
-button.editar {
-    background-color: #ffa500;
-}
-
-button.editar:hover {
-    background-color: #e68900;
-}
-
-button.remover {
-    background-color: #f44336;
-}
-
-button.remover:hover {
-    background-color: #d32f2f;
+    animation: fadeIn 0.5s ease-out;
 }
