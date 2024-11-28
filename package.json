@@ -1,0 +1,16 @@
+{
+  "name": "trabalho_xdes04",
+  "version": "1.0.0",
+  "main": "index.js",
+  "dependencies": {
+    "jspdf": "^2.5.1",
+    "jspdf-autotable": "^3.8.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
