@@ -1,10 +1,16 @@
 {
+  "name": "trabalho_xdes04",
+  "version": "1.0.0",
+  "main": "index.js",
   "dependencies": {
-    "chai": "^5.1.2",
-    "mocha": "^10.8.2",
-    "selenium-webdriver": "^4.26.0"
+    "jspdf": "^2.5.1",
+    "jspdf-autotable": "^3.8.1"
   },
   "scripts": {
-  "test": "mocha test/**/*.js"
-}
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
 }
