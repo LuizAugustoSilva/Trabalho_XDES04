@@ -17,8 +17,13 @@ function filtrarConsultas(dataInicial, dataFinal, tipoProcedimento) {
         dataFim.setHours(0, 0, 0, 0);
         
         const dentroDoIntervalo = dataConsulta >= dataIni && dataConsulta <= dataFim;
-        const matchTipo = !tipoProcedimento || consulta.procedimento === tipoProcedimento;
         
+        // Normaliza o tipo de procedimento para comparação
+        const matchTipo = !tipoProcedimento || consulta.procedimento.toLowerCase().trim() === tipoProcedimento.toLowerCase().trim();
+        
+        // Depuração
+        console.log('Consulta:', consulta.procedimento, 'Tipo:', tipoProcedimento, 'Match:', matchTipo);
+
         return dentroDoIntervalo && matchTipo;
     });
 }

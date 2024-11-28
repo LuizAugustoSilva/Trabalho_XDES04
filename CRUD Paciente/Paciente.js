@@ -1,4 +1,40 @@
-let pacientes = [];
+let pacientes = [
+    {
+        nome: "João Silva",
+        dataNascimento: "1990-05-12",
+        endereco: "Rua das Flores, 123, São Paulo, SP",
+        cpf: "123.456.789-01",
+        telefone: "(11) 91234-5678",
+        sexo: "Masculino",
+        incapaz: "Não",
+        convenio: "Sim",
+        observacao: "Paciente com histórico de hipertensão."
+    },
+    {
+        nome: "Maria Oliveira",
+        dataNascimento: "1985-11-23",
+        endereco: "Av. Brasil, 456, Rio de Janeiro, RJ",
+        cpf: "987.654.321-09",
+        telefone: "(21) 99876-5432",
+        sexo: "Feminino",
+        incapaz: "Não",
+        convenio: "Não",
+        observacao: "Possui alergia a penicilina."
+    },
+    {
+        nome: "Carlos Souza",
+        dataNascimento: "2000-01-15",
+        endereco: "Rua das Palmeiras, 789, Belo Horizonte, MG",
+        cpf: "456.789.123-45",
+        telefone: "(31) 93456-7890",
+        sexo: "Masculino",
+        incapaz: "Sim",
+        convenio: "Sim",
+        observacao: "Paciente autista."
+    },
+    
+];
+
 
 function addPaciente() {
     const nome = document.getElementById('nome').value;

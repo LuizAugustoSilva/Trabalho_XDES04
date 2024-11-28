@@ -6,7 +6,7 @@
     <title>Relatórios - Sistema Odontológico</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="file:///C:/Users/User/Documents/Documentos Rodolfo/Matérias 2SEM UNIFEI/Engenharia de Software/Release 03/Sidebar/sidebar.css">
-    <link rel="stylesheet" href="relatorio.css">
+    <link rel="stylesheet" href="relatorio1.css">
 </head>
 <body>
     <!-- Menu Toggle Button (Mobile) -->
@@ -47,7 +47,7 @@
             <li>
                 <a href="file:///C:/Users/User/Documents/Documentos Rodolfo/Matérias 2SEM UNIFEI/Engenharia de Software/Release 03/Relatorios/relatorio.html" class="active">
                     <i class="fas fa-file-alt"></i>
-                    Relatórios
+                    Relatórios de Consulta
                 </a>
             </li>
             <li>
@@ -65,7 +65,7 @@
         <h1><i class="fas fa-file-alt"></i> Relatórios</h1>
 
         <div class="report-container">
-            <h2><i class="fas fa-calendar-check"></i> Relatório de Consultas</h2>
+            <h2><i class="fas fa-user-injured"></i> Relatório de Pacientes</h2>
             <form id="reportForm" class="report-form">
                 <div class="form-group">
                     <label for="dataInicial">
@@ -82,14 +82,13 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="tipoProcedimento">
-                        <i class="fas fa-tooth"></i> Tipo de Procedimento:
+                    <label for="possuiConvenio">
+                        <i class="fas fa-file-medical"></i> Possui Convênio:
                     </label>
-                    <select id="tipoProcedimento">
+                    <select id="possuiConvenio">
                         <option value="">Todos</option>
-                        <option value="limpeza">Limpeza</option>
-                        <option value="exame">Exame</option>
-                        <option value="tratamento">Tratamento</option>
+                        <option value="sim">Sim</option>
+                        <option value="nao">Não</option>
                     </select>
                 </div>
 
@@ -108,8 +107,6 @@
     <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.28/jspdf.plugin.autotable.min.js"></script>
-    <script src="file:///C:/Users/User/Documents/Documentos Rodolfo/Matérias 2SEM UNIFEI/Engenharia de Software/Release 03/Sidebar/sidebar.js"></script>
-    <script src="file:///C:/Users/User/Documents/Documentos Rodolfo/Matérias 2SEM UNIFEI/Engenharia de Software/Release 03/CRUD Consulta/Consulta.js"></script>
-    <script src="file:///C:/Users/User/Documents/Documentos Rodolfo/Matérias 2SEM UNIFEI/Engenharia de Software/Release 03/Relatorios/relatorio.js"></script>
+    <script src="relatorio1.js"></script>
 </body>
 </html>
