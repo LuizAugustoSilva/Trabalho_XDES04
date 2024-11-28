@@ -5,74 +5,117 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistema de Consultas Odontológicas</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="/Sidebar/sidebar.css">
     <link rel="stylesheet" href="Consulta.css">
 </head>
 <body>
-    <h1><i class="fas fa-calendar-check"></i>Consultas Odontológicas</h1>
+    <!-- Menu Toggle Button (Mobile) -->
+    <button class="menu-toggle" onclick="toggleSidebar()">
+        <i class="fas fa-bars"></i>
+    </button>
 
-    <!-- Formulário para inserção de nova consulta -->
-    <div id="formulario">
-        <h2><i class="fas fa-plus-circle"></i> Nova Consulta</h2>
-        <form id="formConsulta">
-            <div class="form-group">
-                <label for="data"><i class="fas fa-calendar"></i> Data:</label>
-                <input type="date" id="data" name="data" required>
-            </div>
-            
-            <div class="form-group">
-                <label for="horaInicio"><i class="fas fa-clock"></i> Hora Início:</label>
-                <input type="time" id="horaInicio" name="horaInicio" required>
-            </div>
-            
-            <div class="form-group">
-                <label for="horaTermino"><i class="fas fa-clock"></i> Hora Término:</label>
-                <input type="time" id="horaTermino" name="horaTermino" required>
-            </div>
-            
-            <div class="form-group">
-                <label for="dentista"><i class="fas fa-user-md"></i> Dentista Responsável:</label>
-                <input type="text" id="dentista" name="dentista" required placeholder="Nome do dentista">
-            </div>
-            
-            <div class="form-group">
-                <label for="procedimento"><i class="fas fa-tooth"></i> Procedimento:</label>
-                <select id="procedimento" name="procedimento" required>
-                    <option value="">Selecione o procedimento</option>
-                    <option value="limpeza">Limpeza</option>
-                    <option value="exame">Exame</option>
-                    <option value="tratamento">Tratamento</option>
-                </select>
-            </div>
-            
-            <div class="form-group">
-                <label for="sala"><i class="fas fa-door-open"></i> Sala:</label>
-                <select id="sala" name="sala" required>
-                    <option value="">Selecione a sala</option>
-                    <option value="sala1">Sala 1</option>
-                    <option value="sala2">Sala 2</option>
-                    <option value="sala3">Sala 3</option>
-                </select>
-            </div>
-            
-            <div class="form-group" style="grid-column: span 2;">
-                <label for="observacao"><i class="fas fa-comment"></i> Observações:</label>
-                <textarea id="observacao" name="observacao" placeholder="Adicione observações relevantes"></textarea>
-            </div>
-
-            <button type="button" class="btn-primary" onclick="inserirConsulta()">
-                <i class="fas fa-save"></i> Salvar Consulta
-            </button>
-        </form>
-    </div>
-
-    <!-- Seção para exibir e manipular as consultas -->
-    <div id="consultas">
-        <h2><i class="fas fa-list-alt"></i> Consultas Agendadas</h2>
-        <div id="resultadoConsultas">
-            <!-- A lista de consultas será exibida aqui -->
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <h2><i class="fas fa-tooth"></i> Sistema Odontológico</h2>
         </div>
-    </div>
+        <ul class="sidebar-nav">
+            <li>
+                <a href="/CRUD Consulta/Consulta.html">
+                    <i class="fas fa-calendar-check"></i>
+                    Consultas
+                </a>
+            </li>
+            <li>
+                <a href="/CRUD Paciente/Paciente.html">
+                    <i class="fas fa-user-injured"></i>
+                    Pacientes
+                </a>
+            </li>
+            <li>
+                <a href="/CRUD Procedimentos/Procedimento.html">
+                    <i class="fas fa-procedures"></i>
+                    Procedimentos
+                </a>
+            </li>
+            <li>
+                <a href="/CRUD Usuario/Usuario.html">
+                    <i class="fas fa-users"></i>
+                    Usuários
+                </a>
+            </li>
+        </ul>
+    </aside>
 
+    <!-- Main Content -->
+    <main class="main-content">
+        <h1><i class="fas fa-calendar-check"></i> Sistema de Consultas Odontológicas</h1>
+
+        <!-- Formulário para inserção de nova consulta -->
+        <div id="formulario">
+            <h2><i class="fas fa-plus-circle"></i> Nova Consulta</h2>
+            <form id="formConsulta">
+                <div class="form-group">
+                    <label for="data"><i class="fas fa-calendar"></i> Data:</label>
+                    <input type="date" id="data" name="data" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="horaInicio"><i class="fas fa-clock"></i> Hora Início:</label>
+                    <input type="time" id="horaInicio" name="horaInicio" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="horaTermino"><i class="fas fa-clock"></i> Hora Término:</label>
+                    <input type="time" id="horaTermino" name="horaTermino" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="dentista"><i class="fas fa-user-md"></i> Dentista Responsável:</label>
+                    <input type="text" id="dentista" name="dentista" required placeholder="Nome do dentista">
+                </div>
+                
+                <div class="form-group">
+                    <label for="procedimento"><i class="fas fa-tooth"></i> Procedimento:</label>
+                    <select id="procedimento" name="procedimento" required>
+                        <option value="">Selecione o procedimento</option>
+                        <option value="limpeza">Limpeza</option>
+                        <option value="exame">Exame</option>
+                        <option value="tratamento">Tratamento</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="sala"><i class="fas fa-door-open"></i> Sala:</label>
+                    <select id="sala" name="sala" required>
+                        <option value="">Selecione a sala</option>
+                        <option value="sala1">Sala 1</option>
+                        <option value="sala2">Sala 2</option>
+                        <option value="sala3">Sala 3</option>
+                    </select>
+                </div>
+                
+                <div class="form-group" style="grid-column: span 2;">
+                    <label for="observacao"><i class="fas fa-comment"></i> Observações:</label>
+                    <textarea id="observacao" name="observacao" placeholder="Adicione observações relevantes"></textarea>
+                </div>
+
+                <button type="button" class="btn-primary" onclick="inserirConsulta()">
+                    <i class="fas fa-save"></i> Salvar Consulta
+                </button>
+            </form>
+        </div>
+
+        <!-- Seção para exibir e manipular as consultas -->
+        <div id="consultas">
+            <h2><i class="fas fa-list-alt"></i> Consultas Agendadas</h2>
+            <div id="resultadoConsultas">
+                <!-- A lista de consultas será exibida aqui -->
+            </div>
+        </div>
+    </main>
+
+    <script src="sidebar.js"></script>
     <script src="Consulta.js"></script>
 </body>
 </html>
