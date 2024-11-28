@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relatórios - Sistema Odontológico</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="/Sidebar/sidebar.css">
+    <link rel="stylesheet" href="relatorios.css">
+</head>
+<body>
+    <!-- Menu Toggle Button (Mobile) -->
+    <button class="menu-toggle" onclick="toggleSidebar()">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <h2><i class="fas fa-tooth"></i> Sistema Odontológico</h2>
+        </div>
+        <ul class="sidebar-nav">
+            <li>
+                <a href="/CRUD Consulta/Consulta.html">
+                    <i class="fas fa-calendar-check"></i>
+                    Consultas
+                </a>
+            </li>
+            <li>
+                <a href="/CRUD Paciente/Paciente.html">
+                    <i class="fas fa-user-injured"></i>
+                    Pacientes
+                </a>
+            </li>
+            <li>
+                <a href="/CRUD Procedimentos/Procedimento.html">
+                    <i class="fas fa-procedures"></i>
+                    Procedimentos
+                </a>
+            </li>
+            <li>
+                <a href="/CRUD Usuario/Usuario.html">
+                    <i class="fas fa-users"></i>
+                    Usuários
+                </a>
+            </li>
+            <li>
+                <a href="/Relatorios/relatorio.html" class="active">
+                    <i class="fas fa-file-alt"></i>
+                    Relatórios
+                </a>
+            </li>
+
+        </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <h1><i class="fas fa-file-alt"></i> Relatórios</h1>
+
+        <div class="report-container">
+            <h2><i class="fas fa-calendar-check"></i> Relatório de Consultas</h2>
+            <form id="reportForm" class="report-form">
+                <div class="form-group">
+                    <label for="dataInicial">
+                        <i class="fas fa-calendar"></i> Data Inicial:
+                    </label>
+                    <input type="date" id="dataInicial" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="dataFinal">
+                        <i class="fas fa-calendar"></i> Data Final:
+                    </label>
+                    <input type="date" id="dataFinal" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="tipoProcedimento">
+                        <i class="fas fa-tooth"></i> Tipo de Procedimento:
+                    </label>
+                    <select id="tipoProcedimento">
+                        <option value="">Todos</option>
+                        <option value="limpeza">Limpeza</option>
+                        <option value="exame">Exame</option>
+                        <option value="tratamento">Tratamento</option>
+                    </select>
+                </div>
+
+                <div class="button-group">
+                    <button type="button" onclick="gerarRelatorioPDF()" class="btn-pdf">
+                        <i class="fas fa-file-pdf"></i> Gerar PDF
+                    </button>
+                    <button type="button" onclick="gerarRelatorioCSV()" class="btn-csv">
+                        <i class="fas fa-file-csv"></i> Gerar CSV
+                    </button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.28/jspdf.plugin.autotable.min.js"></script>
+    <script src="/Sidebar/sidebar.js"></script>
+    <script src="/CRUD Consulta/Consulta.js"></script>
+    <script src="/Relatorios/relatorio.js"></script>
+</body>
+</html>
