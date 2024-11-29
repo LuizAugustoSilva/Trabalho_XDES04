@@ -1,69 +1,59 @@
-const { Builder, By, until, WebDriver } = require('selenium-webdriver');
+const { Builder, By, until } = require('selenium-webdriver');
 const chrome = require('selenium-webdriver/chrome');
 
 async function runTest() {
   let driver = await new Builder().forBrowser('chrome').setChromeOptions(new chrome.Options()).build();
 
   try {
-    // Abrir a página HTML
+    // Abrir a página HTML do relatório de pacientes
     await driver.get('file:///C:/Users/User/Documents/Documentos Rodolfo/Matérias 2SEM UNIFEI/Engenharia de Software/Release 03/Relatorios/relatorio1.html');
     
-    // Aumentando o tempo de espera
-    await driver.wait(until.titleIs('Relatório de Pacientes'), 20000);  // 20 segundos de espera
+    // Aguardar até que o título da página seja carregado
+    await driver.wait(until.titleIs('Relatório de Pacientes'), 5000);
+    console.log('Título da página:', await driver.getTitle());
+    
+    // Verificar se os campos de data estão visíveis
+    let dataInicial = await driver.findElement(By.id('dataInicial'));
+    let dataFinal = await driver.findElement(By.id('dataFinal'));
+    let possuiConvenio = await driver.findElement(By.id('possuiConvenio'));
 
-    // Verificar o título da página diretamente
-    let title = await driver.getTitle();
-    console.log('Título da página:', title); // Verifica o título real da página
+    await driver.wait(until.elementIsVisible(dataInicial), 5000);
+    await driver.wait(until.elementIsVisible(dataFinal), 5000);
+    await driver.wait(until.elementIsVisible(possuiConvenio), 5000);
 
-    // Verificar se o título é o esperado
-    if (title !== 'Relatório de Pacientes') {
-      console.error('O título da página está incorreto. Esperado: "Relatório de Pacientes", mas foi: ' + title);
-      return; // Encerra o teste se o título não for o esperado
-    }
-
-    // Localizar os elementos do formulário
-    let dataInicialInput = await driver.findElement(By.id('dataInicial'));
-    let dataFinalInput = await driver.findElement(By.id('dataFinal'));
-    let tipoConvenioSelect = await driver.findElement(By.id('possuiConvenio'));
-
-    // Limpar e preencher o formulário com uma faixa de datas
-    await dataInicialInput.clear();
-    await dataFinalInput.clear();
-
-    await dataInicialInput.sendKeys('01-01-2024');
-    await dataFinalInput.sendKeys('31-12-2024');
-    await tipoConvenioSelect.sendKeys('Sim');
-
-    // Verificar se os campos foram preenchidos corretamente
-    let dataInicialValue = await dataInicialInput.getAttribute('value');
-    let dataFinalValue = await dataFinalInput.getAttribute('value');
-    let tipoConvenioValue = await tipoConvenioSelect.getAttribute('value');
-
-    console.log('Data Inicial:', dataInicialValue);
-    console.log('Data Final:', dataFinalValue);
-    console.log('Convenio:', tipoConvenioValue);
-
-    // Clicar no botão "Gerar PDF" para essa faixa de datas
-    let gerarPdfButton = await driver.findElement(By.className('btn-pdf'));
-    await gerarPdfButton.click();
+    console.log('Campos de data e convênio estão visíveis.');
+    
+    // Preencher o formulário
+    await dataInicial.sendKeys('01-01-2023');
+    await dataFinal.sendKeys('31-12-2024');
+    await possuiConvenio.sendKeys('sim');
+    console.log('Campos preenchidos.');
+    
+    // Verificar se o valor preenchido nos campos está correto
+    let dataInicialValue = await dataInicial.getAttribute('value');
+    let dataFinalValue = await dataFinal.getAttribute('value');
+    let possuiConvenioValue = await possuiConvenio.getAttribute('value');
+    
+    console.log(`Data Inicial: ${dataInicialValue}`);
+    console.log(`Data Final: ${dataFinalValue}`);
+    console.log(`Possui Convênio: ${possuiConvenioValue}`);
+    
+    // Clicar no botão "Gerar PDF"
+    let btnPdf = await driver.findElement(By.className('btn-pdf'));
+    await btnPdf.click();
     console.log('Botão "Gerar PDF" clicado.');
-
-    // Aguardar para simular a geração do PDF
+    
+    // Aguardar um tempo para simular a geração do PDF
     await driver.sleep(3000);
-
-    // Tratar o alerta
-    try {
-      // Esperar até que o alerta apareça
-      await driver.wait(until.alertIsPresent(), 5000);
-      let alert = await driver.switchTo().alert();
-      console.log('Alerta encontrado:', await alert.getText());
-
-      // Fechar o alerta
-      await alert.accept();
-      console.log('Alerta fechado.');
-    } catch (alertError) {
-      console.log('Nenhum alerta encontrado ou erro ao fechar alerta:', alertError);
-    }
+    
+    // Verificar se o botão "Gerar PDF" está clicado (verificando a classe)
+    let btnPdfClass = await btnPdf.getAttribute('class');
+    console.log('Classe do botão após clique:', btnPdfClass);
+    
+    // Testar também o botão "Gerar CSV"
+    let btnCsv = await driver.findElement(By.className('btn-csv'));
+    await btnCsv.click();
+    console.log('Botão "Gerar CSV" clicado.');
 
   } catch (err) {
     console.error('Erro durante o teste:', err);
